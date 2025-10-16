@@ -1,0 +1,5 @@
+DISK=false
+SIZE=128GB
+STREAM="HD"//~ 1800 RES
+DIALAT:
+  - "4K STREAMING=false"
