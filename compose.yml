@@ -3,16 +3,11 @@ services:
     image: dockurr/windows
     container_name: windows
     environment:
-      DISK2_SIZE: "32G"
-      DISK3_SIZE: "64G"
       VERSION: "11e"
       RAM_SIZE: "8G"
       CPU_CORES: "4"
-      DISK_SIZE: "64G"
       USERNAME: "shane"
       PASSWORD: "shane"
-      REGION: "en-US"
-      KEYBOARD: "en-US"
     devices:
       - /dev/sdb:/disk1
       - /dev/sdc1:/disk2
@@ -25,7 +20,6 @@ services:
       - 3389:3389/tcp
       - 3389:3389/udp
     volumes:
-      - ./shane:/storage4
       - ./example2:/storage2
       - ./example3:/storage3
       - ./windows:/storage
