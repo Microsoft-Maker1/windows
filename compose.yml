@@ -3,9 +3,19 @@ services:
     image: dockurr/windows
     container_name: windows
     environment:
+      DISK2_SIZE: "32G"
+      DISK3_SIZE: "64G"
       VERSION: "11e"
-      RAM_SIZE: "8G"
+      RAM_SIZE: "4G"
+      CPU_CORES: "4"
+      DISK_SIZE: "64G"
+      USERNAME: "shane"
+      PASSWORD: "shane"
+      REGION: "en-US"
+      KEYBOARD: "en-US"
     devices:
+      - /dev/sdb:/disk1
+      - /dev/sdc1:/disk2
       - /dev/kvm
       - /dev/net/tun
     cap_add:
@@ -15,6 +25,8 @@ services:
       - 3389:3389/tcp
       - 3389:3389/udp
     volumes:
+      - ./example2:/storage2
+      - ./example3:/storage3
       - ./windows:/storage
     restart: always
     stop_grace_period: 2m
